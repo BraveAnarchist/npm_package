@@ -1,0 +1,105 @@
+function sum(arr) {
+    return arr.reduce((acc, val) => acc + val, 0);
+}
+
+/**
+ * Remove duplicate values from an array.
+ * @param {Array} arr - The array to be processed.
+ * @returns {Array} A new array with duplicates removed.
+ */
+function unique(arr) {
+    return [...new Set(arr)];
+}
+
+/**
+ * Find the average of the numbers in an array.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The average of the numbers.
+ */
+function average(arr) {
+    if (arr.length === 0) return 0;
+    return sum(arr) / arr.length;
+}
+
+/**
+ * Find the maximum value in an array.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The maximum value.
+ */
+function max(arr) {
+    return Math.max(...arr);
+}
+
+/**
+ * Find the minimum value in an array.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The minimum value.
+ */
+function min(arr) {
+    return Math.min(...arr);
+}
+
+/**
+ * Flatten a nested array.
+ * @param {Array} arr - The nested array.
+ * @returns {Array} A flattened array.
+ */
+function flatten(arr) {
+    return arr.flat(Infinity);
+}
+
+/**
+ * Get the median of an array of numbers.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The median value.
+ */
+function median(arr) {
+    const sorted = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+}
+
+/**
+ * Remove falsy values from an array.
+ * @param {Array} arr - The array to be processed.
+ * @returns {Array} A new array with falsy values removed.
+ */
+function removeFalsy(arr) {
+    return arr.filter(Boolean);
+}
+
+/**
+ * Get the range (difference between max and min) of an array.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The range of the numbers.
+ */
+function range(arr) {
+    return max(arr) - min(arr);
+}
+
+/**
+ * Shuffle the elements of an array.
+ * @param {Array} arr - The array to be shuffled.
+ * @returns {Array} A new array with elements shuffled.
+ */
+function shuffle(arr) {
+    let shuffled = arr.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+module.exports = {
+    sum,
+    unique,
+    average,
+    max,
+    min,
+    flatten,
+    median,
+    removeFalsy,
+    range,
+    shuffle,
+};
